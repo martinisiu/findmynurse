@@ -2,10 +2,11 @@
 
 <ul>
   {% for nurse in object_list %}
-    <li>
+    <li><a href="/nurse/{{nurse.id}}">
         Name: {{ nurse.firstName }}
         Lastname: {{ nurse.lastName }}
         Area: {{ nurse.area }}
+      </a>
     </li>
   {% endfor %}
 </ul>
