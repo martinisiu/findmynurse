@@ -15,6 +15,9 @@ class Nurse(models.Model):
     lattiude = models.FloatField(max_length=10, null=True)
     longitude = models.FloatField(max_length=10, null=True)
 
+    def __init__(self):
+        x = 3141
+
     def __str__(self):
         return self.firstName
 
