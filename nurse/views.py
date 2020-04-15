@@ -4,4 +4,4 @@ from .models import Nurse
 
 def detail(request, nurse_id):
     nurse = get_object_or_404(Nurse, pk=nurse_id)
-    return render(request, 'nurse/detail.html', {'nurse': nurse})
+    return render(request, 'nurse/more-info.html', {'nurse': nurse})

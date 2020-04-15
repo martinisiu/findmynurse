@@ -7,11 +7,11 @@ from nurse.models import Nurse
 # Create your views here.
 
 class HomePageView(TemplateView):
-    template_name = "search/homepage.html"
+    template_name = "search/index.html"
 
 class SearchResultsView(ListView):
     model = Nurse
-    template_name = 'search/search_results.html'
+    template_name = 'search/search-results.html'
 
     def get_queryset(self): # new
         query = self.request.GET.get('q')
