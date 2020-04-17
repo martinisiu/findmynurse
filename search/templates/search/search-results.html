@@ -37,20 +37,22 @@
       <div data-w-id="e0466716-e0a1-65d5-7394-68f370c8dbcb" data-animation-type="lottie" data-src="https://uploads-ssl.webflow.com/5e90ec5e37cf8d94ec380082/5e91b39365892b009b0b78ac_Menu_Animated_Button.json" data-loop="0" data-direction="1" data-autoplay="0" data-is-ix2-target="1" data-renderer="svg" data-default-duration="0.6339672748119514" data-duration="0" data-ix2-initial-state="0" class="menu-icon"></div>
     </div>
   </div>
+
   <div class="container search-results">
     <div class="header-container">
       <div class="heading-text">Search results.</div>
     </div>
-    <div class="results-container">
-      {% for nurse in object_list %}
-      <a href="/nurse/{{nurse.id}}" class="result-item-wrapper w-inline-block">
-        <div class="results-name-text">{{ nurse.firstName }}</div>
-        <div class="results-location-text">{{nurse.postcode}}</div>
-        <div class="results-location-text">{{nurse.email}}</div>
-      </a>
-      {% endfor %}
-    </div>
+    <div class="results-container"></div>
+    {% for nurse in object_list %}
+    <a href="/nurse/{{nurse.id}}" class="result-item-wrapper w-inline-block">
+      <div class="results-name-text">{{ nurse.firstName }}</div>
+      <div class="results-location-text">{{ nurse.postCode }}</div>
+      <div class="results-location-text">{{ nurse.primary_care_trust }}</div>
+    </a>
+    {% endfor %}
+  
   </div>
+
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js?site=5e90ec5e37cf8d94ec380082" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="{% static 'search/js/webflow.js' %}" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->

@@ -13,11 +13,14 @@ class SearchResultsView(ListView):
     model = Nurse
     template_name = 'search/search-results.html'
 
+
     def get_queryset(self): # new
-        query = self.request.GET.get('q')
+        q = self.request.GET.get('q')
+        area = Nurse.getAreaData(self, q)[2]
         object_list = Nurse.objects.filter(
-            Q(firstName__icontains=query) | Q(lastName__icontains=query) | Q(area__icontains=query)
+            Q(primary_care_trust__icontains=area)
         )
+
         return object_list
         
 class Test(TemplateView):
