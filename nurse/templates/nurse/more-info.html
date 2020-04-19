@@ -44,11 +44,12 @@
         <div class="nurse-name-text">{{ nurse.firstName }} {{ nurse.lastName }}</div>
         <div class="details-text email">{{ nurse.email }}</div>
         <div class="details-text number">{{ nurse.phoneNumber }}</div>
-        <div class="details-text address-line-1">Address Line 1 (Address-Line-1)</div>
-        <div class="details-text post-code">Address Line 2 (Address-Line-2)</div>
+        <div class="details-text address-line-1">Address: </div>
+        <div class="details-text address-line-1">{{ nurse.addressLine1 }}</div>
+        <div class="details-text post-code">{{ nurse.addressLine2 }}</div>
         <div class="details-text post-code">{{ nurse.postCode }}</div>
-        <div class="details-text post-code">Files: 
-          {% for file in nurse.pdffile_set.all %}
+        <div class="details-text address-line-1">Files: 
+          {% for file in nurse.pdffile_set.all %} 
         <a href="{{ file.pdffile.url }}/">{{ file.pk }}</a>,
           {% endfor %}
         </div>

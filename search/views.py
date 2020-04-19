@@ -13,10 +13,13 @@ class SearchResultsView(ListView):
     model = Nurse
     template_name = 'search/search-results.html'
 
+    
+
 
     def get_queryset(self): # new
         q = self.request.GET.get('q')
-        area = Nurse.getAreaData(self, q)[2]
+        #Turns the postcode to an area ie. SE17xb returns Lambeth
+        lat,lng, area = Nurse.getAreaData(self, q)
         object_list = Nurse.objects.filter(
             Q(primary_care_trust__icontains=area)
         )
