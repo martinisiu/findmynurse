@@ -13,6 +13,8 @@ class Nurse(models.Model):
     latitude = models.FloatField(max_length=10, default=0)
     longitude = models.FloatField(max_length=10, default=0)
     primary_care_trust = models.CharField(max_length=100, default="N/A")
+    addressLine1 = models.CharField(max_length=100, default="N/A")
+    addressLine2 = models.CharField(max_length=100, default="N/A")
 
     def save(self, *args, **kwargs):
         data = self.getAreaData(self.postCode)
