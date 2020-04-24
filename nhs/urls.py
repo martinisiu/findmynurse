@@ -18,11 +18,24 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rest_framework import routers
+from search import views
+from nurse import views as nurseviews
+
+from rest_framework.urlpatterns import format_suffix_patterns
+
+
 urlpatterns = [
+    #API ABove
+    #path('nurses/', nurseviews.NurseList.as_view()),
+    path('api/<str:postcode>', nurseviews.PostCodeToNurse.as_view()),
+    #API
     path('admin/', admin.site.urls),
     path('', include('search.urls')),
-    path('nurse/', include('nurse.urls'))
+    path('nurse/', include('nurse.urls')),
 ]
+
+#urlpatterns = format_suffix_patterns(urlpatterns)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

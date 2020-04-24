@@ -4,6 +4,12 @@ from django.views.generic import TemplateView, ListView
 from django.db.models import Q
 
 from nurse.models import Nurse
+
+from django.contrib.auth.models import User, Group
+from rest_framework import viewsets
+from rest_framework import permissions
+
+
 # Create your views here.
 
 class HomePageView(TemplateView):
@@ -12,9 +18,7 @@ class HomePageView(TemplateView):
 class SearchResultsView(ListView):
     model = Nurse
     template_name = 'search/search-results.html'
-
     
-
 
     def get_queryset(self): # new
         q = self.request.GET.get('q')
@@ -31,3 +35,9 @@ class Test(TemplateView):
 
 class About(TemplateView):
     template_name = "search/about.html"
+
+class SignUp(TemplateView):
+    template_name = "search/sign-up.html"
+
+class Contact(TemplateView):
+    template_name = "search/contact.html"
